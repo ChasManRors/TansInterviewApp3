@@ -1,0 +1,9 @@
+@app.name = 'TansInterviewApp'
+route [:users, [:posts, :comments]]
+add_attrs :users=>"name:string email:string", :posts=>"title:string body:string", :comments=>"body:text"
+route [:users, [:posts, :comments]]
+Comment.belongs_to(Post)
+Post.has_many(Comment)
+Post.belongs_to(User)
+User.has_many(Post)
+generate 

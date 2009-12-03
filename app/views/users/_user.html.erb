@@ -1,0 +1,25 @@
+<% div_for(user) do %>
+<h3>user</h3>
+
+  <div>
+    <b>name:</b>
+    <%=h user.name %>
+  </div>
+
+  <div>
+    <b>email:</b>
+    <%=h user.email %>
+  </div>
+
+<% end %>
+
+  
+  <div>
+    <h4>list of posts</h4>
+    <%= render :partial => 'posts/post_small', :collection => user.posts %>
+  </div>
+  <div>
+    <h4>make a new post</h4>
+    <%= render :partial => 'posts/form', :object => user.posts.new %>
+  </div>
+

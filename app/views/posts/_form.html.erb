@@ -1,0 +1,21 @@
+<% form_for([form.user,form]) do |f| %>
+<%= f.error_messages %>
+
+  <div>
+        <%= f.label :body %>
+        <%= f.text_field :body %>
+  </div>
+
+  <div>
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+  </div>
+
+
+
+
+
+  <div>
+    <%= f.submit 'Submit' %>
+  </div>
+<% end %>
