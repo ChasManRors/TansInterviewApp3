@@ -1,25 +1,19 @@
 <% form_for([form.user,form]) do |f| %>
-<%= f.error_messages %>
-
-
-
-
+  <%= f.error_messages %>
+  
+  
+  So what were some of the things that were talked about during the interview?
+  <br /> <br />
   <div>
-        <%= f.label :title %>
-        <%= f.text_field :title %>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
   </div>
-
-
+  <br />
   <div>
-        <%= f.label :body %>
-        <%= f.text_field :body %>
+    <%= f.label :body %>
+    <%= f.text_field :body %>
   </div>
-
-
-
-
-
-
+  <br />
   <div>
     <%= f.submit 'Submit' %>
   </div>
