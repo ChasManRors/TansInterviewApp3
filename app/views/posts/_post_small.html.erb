@@ -1,14 +1,15 @@
 <% div_for(post_small) do %>
 
   <div>
-
     <h4> <%= post_small.title %>  </h4>
   </div>
-
+  
   <div>
     <span>body:</span>
     <%= post_small.body %>  
   </div>
 
+   <!-- <# %= link_to 'Destroy', post_comment_path(@post,comment), :confirm => 'Are you sure?', :method => :delete %> -->
+    <%= link_to 'Destroy', user_post_path(post_small.user,post_small), :confirm => 'Are you sure?', :method => :delete %>
 
 <% end %>
