@@ -1,25 +1,35 @@
 <% div_for(user) do %>
-<h3>user</h3>
+        <div class="post">
 
-  <div>
-    <b>name:</b>
-    <%=h user.name %>
-  </div>
+	  <h1> <%=h user.name %></h1>
+	  <h2> <%=h user.email %></h2>
 
-  <div>
-    <b>email:</b>
-    <%=h user.email %>
-  </div>
+          <p class="byline">Posted by Acmmtpa</p>
+          <div class="entry">
+            <p></p>
 
-<% end %>
+	    <div>
+	      <%= render :partial => 'posts/post_small', :collection => user.posts %>
+	    </div>
+
+          </div>
+          <div class="meta">
+            <p class="links"><a href="#" class="comments">Comments (32)</a></p>
+          </div>
+        </div>
+
+
+
+
+
+
+
+
 
   
-  <div>
-    <h4>list of posts</h4>
-    <%= render :partial => 'posts/post_small', :collection => user.posts %>
-  </div>
-  <div>
-    <h4>make a new post</h4>
-    <%= render :partial => 'posts/form', :object => user.posts.new %>
-  </div>
+  <!-- <div> -->
+  <!--   <h4>make a new post</h4> -->
+    <!-- <# %= render :partial => 'posts/form', :object => user.posts.new %> -->
+  <!-- </div> -->
 
+<% end %>

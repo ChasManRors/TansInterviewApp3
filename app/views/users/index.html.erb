@@ -1,6 +1,7 @@
-<h1>Listing users</h1>
 
 
-<%= render :partial => 'users/user', :collection => @users %>
+<!-- <# %= render :partial => 'users/user', :collection => @users %> -->
+
+<%= render :partial => 'users/user_small', :collection => @users %>
 
 <%= link_to 'new user', new_user_path(@user) %>
