@@ -9,6 +9,8 @@
           <div class="meta">
             <p class="links">
 
+	      <%= link_to 'Edit Contact', edit_user_path(user_small) %>
+	      <br />
 	      <%= link_to "Information items (#{user_small.posts.count})", user_small %> 
 
 	    </p>

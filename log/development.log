@@ -2711,3 +2711,332 @@ Rendered users/_user_small (2.3ms)
   [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".user_id = 3) [0m
 Rendered users/_user_small (3.6ms)
 Completed in 46ms (View: 35, DB: 2) | 200 OK [http://localhost/users]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-12-04 15:47:21) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mPost Load (1.1ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".user_id = 1) [0m
+Rendered posts/_post_small (1.0ms)
+Rendered posts/_post_small (0.6ms)
+Rendered posts/_post_small (0.6ms)
+Rendered posts/_post_small (0.5ms)
+Rendered posts/_post_small (0.5ms)
+Rendered users/_user (9.5ms)
+Completed in 34ms (View: 11, DB: 1) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-12-04 15:48:38) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mPost Load (1.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".user_id = 1) [0m
+Rendered posts/_post_small (1.0ms)
+Rendered posts/_post_small (0.5ms)
+Rendered posts/_post_small (0.5ms)
+Rendered posts/_post_small (0.6ms)
+Rendered posts/_post_small (0.5ms)
+Rendered users/_user (9.6ms)
+Completed in 98ms (View: 11, DB: 1) | 200 OK [http://localhost/users/1]
+  [4;36;1mUser Load (1.1ms)[0m   [0;1mSELECT * FROM "users" [0m
+  [4;35;1mUser Load (0.8ms)[0m   [0mSELECT * FROM "users" [0m
+  [4;36;1mUser Load (0.7ms)[0m   [0;1mSELECT * FROM "users" LIMIT 1[0m
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM "users" LIMIT 1[0m
+  [4;36;1mPost Load (1.7ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".user_id = 1) [0m
+  [4;35;1mUser Load (0.7ms)[0m   [0mSELECT * FROM "users" LIMIT 1[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".user_id = 1) [0m
+  [4;35;1mUser Load (0.7ms)[0m   [0mSELECT * FROM "users" LIMIT 1[0m
+  [4;36;1mPost Load (0.4ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".user_id = 1) LIMIT 1[0m
+  [4;35;1mUser Load (0.7ms)[0m   [0mSELECT * FROM "users" LIMIT 1[0m
+  [4;36;1mPost Load (0.5ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".user_id = 1) LIMIT 1[0m
+  [4;35;1mComment Load (0.2ms)[0m   [0mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-12-04 15:52:46) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mPost Load (0.9ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".user_id = 1) [0m
+Rendered posts/_post_small (0.9ms)
+Rendered posts/_post_small (0.5ms)
+Rendered posts/_post_small (0.5ms)
+Rendered posts/_post_small (0.7ms)
+Rendered posts/_post_small (0.6ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered posts/_form (6.4ms)
+Rendered users/_user (22.2ms)
+Completed in 51ms (View: 28, DB: 1) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-12-04 15:52:49) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mPost Load (1.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".user_id = 1) [0m
+Rendered posts/_post_small (1.0ms)
+Rendered posts/_post_small (0.4ms)
+Rendered posts/_post_small (0.4ms)
+Rendered posts/_post_small (0.4ms)
+Rendered posts/_post_small (0.5ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered posts/_form (5.1ms)
+Rendered users/_user (14.4ms)
+Completed in 39ms (View: 15, DB: 1) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-12-04 15:54:38) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mPost Load (0.9ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".user_id = 1) [0m
+Rendered posts/_post_small (0.8ms)
+Rendered posts/_post_small (0.4ms)
+Rendered posts/_post_small (0.4ms)
+Rendered posts/_post_small (0.4ms)
+Rendered posts/_post_small (0.4ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered posts/_form (5.7ms)
+Rendered users/_user (18.2ms)
+Completed in 40ms (View: 20, DB: 1) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-12-04 16:08:47) [GET]
+  [4;36;1mUser Load (0.9ms)[0m   [0;1mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".user_id = 1) [0m
+Rendered users/_user_small (13.2ms)
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".user_id = 2) [0m
+Rendered users/_user_small (2.5ms)
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".user_id = 3) [0m
+Rendered users/_user_small (2.4ms)
+Completed in 32ms (View: 21, DB: 2) | 200 OK [http://localhost/users]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-12-04 16:08:58) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mPost Load (0.9ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".user_id = 1) [0m
+Rendered posts/_post_small (1.6ms)
+Rendered posts/_post_small (0.6ms)
+Rendered posts/_post_small (0.5ms)
+Rendered posts/_post_small (0.6ms)
+Rendered posts/_post_small (0.6ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered posts/_form (5.5ms)
+Rendered users/_user (21.0ms)
+Completed in 44ms (View: 22, DB: 1) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-12-04 16:09:18) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mPost Load (0.9ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".user_id = 1) [0m
+Rendered posts/_post_small (0.8ms)
+Rendered posts/_post_small (0.4ms)
+Rendered posts/_post_small (0.4ms)
+Rendered posts/_post_small (0.5ms)
+Rendered posts/_post_small (0.4ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered posts/_form (5.0ms)
+Rendered users/_user (13.7ms)
+Completed in 36ms (View: 15, DB: 2) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-12-04 16:09:42) [GET]
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".user_id = 1) [0m
+Rendered users/_user_small (11.9ms)
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".user_id = 2) [0m
+Rendered users/_user_small (2.3ms)
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".user_id = 3) [0m
+Rendered users/_user_small (2.5ms)
+Completed in 30ms (View: 19, DB: 2) | 200 OK [http://localhost/users]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-12-04 16:09:57) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mPost Load (1.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".user_id = 1) [0m
+Rendered posts/_post_small (1.0ms)
+Rendered posts/_post_small (0.7ms)
+Rendered posts/_post_small (0.7ms)
+Rendered posts/_post_small (0.7ms)
+Rendered posts/_post_small (0.8ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered posts/_form (5.7ms)
+Rendered users/_user (17.3ms)
+Completed in 109ms (View: 19, DB: 1) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-12-04 16:10:21) [GET]
+Rendering template within layouts/application
+Rendering users/new
+Rendered users/_form (6.0ms)
+Completed in 18ms (View: 8, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing CreditsController#index (for 127.0.0.1 at 2009-12-04 16:10:25) [GET]
+Rendering template within layouts/application
+Rendering credits/show
+Completed in 16ms (View: 12, DB: 0) | 200 OK [http://localhost/credits]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-12-04 16:11:26) [GET]
+  [4;35;1mUser Load (0.9ms)[0m   [0mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".user_id = 1) [0m
+Rendered users/_user_small (14.0ms)
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".user_id = 2) [0m
+Rendered users/_user_small (2.4ms)
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".user_id = 3) [0m
+Rendered users/_user_small (3.1ms)
+Completed in 37ms (View: 21, DB: 3) | 200 OK [http://localhost/users]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-12-04 16:12:27) [GET]
+
+ActionController::RoutingError (No route matches "/meetings/14" with {:method=>:get}):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing CreditsController#index (for 127.0.0.1 at 2009-12-04 16:32:17) [GET]
+Rendering template within layouts/application
+Rendering credits/show
+Completed in 5ms (View: 2, DB: 0) | 200 OK [http://localhost/credits]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-12-04 16:33:19) [GET]
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".user_id = 1) [0m
+Rendered users/_user_small (11.7ms)
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".user_id = 2) [0m
+Rendered users/_user_small (2.2ms)
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".user_id = 3) [0m
+Rendered users/_user_small (2.3ms)
+Completed in 30ms (View: 18, DB: 2) | 200 OK [http://localhost/users]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-12-04 16:39:30) [GET]
+  [4;35;1mUser Load (1.2ms)[0m   [0mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".user_id = 1) [0m
+
+ActionView::TemplateError (edit_user_post_url failed to generate from {:user_id=>#<User id: 1, name: "Tan Mai", email: "tansemail@corp.com", created_at: "2009-12-03 21:24:03", updated_at: "2009-12-03 21:24:03">, :action=>"edit", :controller=>"posts"}, expected: {:action=>"edit", :controller=>"posts"}, diff: {:user_id=>#<User id: 1, name: "Tan Mai", email: "tansemail@corp.com", created_at: "2009-12-03 21:24:03", updated_at: "2009-12-03 21:24:03">}) on line #14 of app/views/users/_user_small.html.erb:
+11: 
+12: 	      <%= link_to "Information items (#{user_small.posts.count})", user_small %> 
+13: 
+14: 	      <%= link_to 'Edit', edit_user_post_path(user_small) %>
+15: 
+16: 	    </p>
+17: 
+
+    (eval):16:in `edit_user_post_path'
+    app/views/users/_user_small.html.erb:14
+    app/views/users/_user_small.html.erb:1
+    app/views/users/index.html.erb:5
+    app/controllers/users_controller.rb:27:in `index'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (88.4ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-12-04 16:40:25) [GET]
+  [4;35;1mUser Load (0.8ms)[0m   [0mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+  [4;36;1mSQL (6.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".user_id = 1) [0m
+Rendered users/_user_small (20.6ms)
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".user_id = 2) [0m
+Rendered users/_user_small (3.0ms)
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".user_id = 3) [0m
+Rendered users/_user_small (2.8ms)
+Completed in 46ms (View: 27, DB: 8) | 200 OK [http://localhost/users]
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2009-12-04 16:40:37) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering users/edit
+Rendered users/_form (7.0ms)
+Completed in 111ms (View: 92, DB: 0) | 200 OK [http://localhost/users/1/edit]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-12-04 16:40:52) [GET]
+  [4;36;1mUser Load (0.9ms)[0m   [0;1mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".user_id = 1) [0m
+Rendered users/_user_small (15.9ms)
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".user_id = 2) [0m
+Rendered users/_user_small (3.3ms)
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".user_id = 3) [0m
+Rendered users/_user_small (3.1ms)
+Completed in 49ms (View: 29, DB: 2) | 200 OK [http://localhost/users]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-12-04 16:41:42) [GET]
+  [4;36;1mUser Load (0.9ms)[0m   [0;1mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".user_id = 1) [0m
+Rendered users/_user_small (13.3ms)
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".user_id = 2) [0m
+Rendered users/_user_small (3.0ms)
+  [4;35;1mSQL (0.5ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".user_id = 3) [0m
+Rendered users/_user_small (3.3ms)
+Completed in 37ms (View: 26, DB: 2) | 200 OK [http://localhost/users]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-12-04 16:42:08) [GET]
+  [4;36;1mUser Load (0.9ms)[0m   [0;1mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".user_id = 1) [0m
+Rendered users/_user_small (12.9ms)
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".user_id = 2) [0m
+Rendered users/_user_small (2.7ms)
+  [4;35;1mSQL (0.5ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".user_id = 3) [0m
+Rendered users/_user_small (3.2ms)
+Completed in 36ms (View: 25, DB: 2) | 200 OK [http://localhost/users]
