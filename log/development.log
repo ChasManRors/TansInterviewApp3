@@ -1,291 +1,1155 @@
-  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-[0m
-  [4;35;1mSQL (0.2ms)[0m   [0mselect sqlite_version(*)[0m
-  [4;36;1mSQL (2.0ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
-  [4;35;1mSQL (1.7ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
-  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-[0m
-  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
-Migrating to CreateComments (20091203162133)
-  [4;36;1mSQL (0.7ms)[0m   [0;1mCREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "body" text, "post_id" integer, "created_at" datetime, "updated_at" datetime) [0m
-  [4;35;1mSQL (0.2ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20091203162133')[0m
-Migrating to CreatePosts (20091203162135)
-  [4;36;1mSQL (1.2ms)[0m   [0;1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "body" varchar(255), "title" varchar(255), "user_id" integer, "created_at" datetime, "updated_at" datetime) [0m
-  [4;35;1mSQL (0.3ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20091203162135')[0m
-Migrating to CreateUsers (20091203162136)
-  [4;36;1mSQL (0.6ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "email" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
-  [4;35;1mSQL (0.2ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20091203162136')[0m
-  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-12-04 12:20:02) [GET]
+  [4;36;1mUser Load (0.9ms)[0m   [0;1mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+  [4;35;1mPost Load (0.9ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".user_id = 1) [0m
+Rendered posts/_post_small (1.8ms)
+Rendered posts/_post_small (0.4ms)
+Rendered posts/_post_small (0.4ms)
+Rendered posts/_post_small (0.4ms)
+Rendered posts/_post_small (0.4ms)
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered posts/_form (6.7ms)
+Rendered users/_user (53.5ms)
+  [4;35;1mPost Load (0.4ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".user_id = 2) [0m
+Rendered posts/_post_small (0.5ms)
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered posts/_form (4.8ms)
+Rendered users/_user (8.2ms)
+Completed in 106ms (View: 85, DB: 3) | 200 OK [http://localhost/]
+
+
+Processing PostsController#create (for 127.0.0.1 at 2009-12-04 12:21:40) [POST]
+  Parameters: {"commit"=>"Submit", "post"=>{"title"=>"On organization", "body"=>"I work for Bill the CTo"}, "authenticity_token"=>"p/7ZBpw3BAxmkzYQebZ+hPwXqpZe9ocK2HfSMNTLJoQ=", "user_id"=>"2"}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mPost Create (0.7ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "body", "title", "updated_at", "user_id") VALUES('2009-12-04 17:21:40', 'I work for Bill the CTo', 'On organization', '2009-12-04 17:21:40', 2)[0m
+Redirected to http://localhost:3000/users/2/posts
+Completed in 32ms (DB: 1) | 302 Found [http://localhost/users/2/posts]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-12-04 12:21:40) [GET]
+  Parameters: {"user_id"=>"2"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering posts/index
+  [4;36;1mPost Load (0.9ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".user_id = 2) [0m
+  [4;35;1mComment Load (0.2ms)[0m   [0mSELECT * FROM "comments" WHERE ("comments".post_id = 6) [0m
+  [4;36;1mPost Load (0.8ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered comments/_form (9.3ms)
+Rendered posts/_post (30.2ms)
+  [4;36;1mComment Load (0.2ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments".post_id = 7) [0m
+  [4;35;1mPost Load (0.4ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 7) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered comments/_form (5.9ms)
+Rendered posts/_post (8.3ms)
+Completed in 144ms (View: 124, DB: 3) | 200 OK [http://localhost/users/2/posts]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-12-04 12:21:40) [GET]
+
+ActionController::RoutingError (No route matches "/users/2/img01.jpg" with {:method=>:get}):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-12-04 12:28:58) [GET]
+  Parameters: {"user_id"=>"2"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering posts/index
+  [4;36;1mPost Load (0.9ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".user_id = 2) [0m
+  [4;35;1mComment Load (0.4ms)[0m   [0mSELECT * FROM "comments" WHERE ("comments".post_id = 6) [0m
+  [4;36;1mPost Load (0.6ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered comments/_form (7.8ms)
+Rendered posts/_post (18.7ms)
+  [4;36;1mComment Load (0.3ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments".post_id = 7) [0m
+  [4;35;1mPost Load (0.6ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 7) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered comments/_form (6.4ms)
+Rendered posts/_post (8.9ms)
+Completed in 64ms (View: 42, DB: 3) | 200 OK [http://localhost/users/2/posts]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-12-04 12:28:58) [GET]
+
+ActionController::RoutingError (No route matches "/users/2/img01.jpg" with {:method=>:get}):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing CommentsController#create (for 127.0.0.1 at 2009-12-04 12:32:16) [POST]
+  Parameters: {"comment"=>{"body"=>""}, "commit"=>"Submit", "post_id"=>"7", "authenticity_token"=>"p/7ZBpw3BAxmkzYQebZ+hPwXqpZe9ocK2HfSMNTLJoQ=", "user_id"=>"2"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mPost Load (0.4ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 7 AND ("posts".user_id = 2)) [0m
+  [4;35;1mComment Create (0.3ms)[0m   [0mINSERT INTO "comments" ("created_at", "body", "updated_at", "post_id") VALUES('2009-12-04 17:32:16', '', '2009-12-04 17:32:16', 7)[0m
+Redirected to http://localhost:3000/users/2/posts/7/comments
+Completed in 36ms (DB: 1) | 302 Found [http://localhost/users/2/posts/7/comments]
+
+
+Processing CommentsController#index (for 127.0.0.1 at 2009-12-04 12:32:16) [GET]
+  Parameters: {"post_id"=>"7", "user_id"=>"2"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mPost Load (0.4ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 7 AND ("posts".user_id = 2)) [0m
+Rendering template within layouts/application
+Rendering comments/index
+  [4;36;1mComment Load (0.5ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments".post_id = 7) [0m
+Rendered comments/_comment (1.8ms)
+Completed in 128ms (View: 105, DB: 1) | 200 OK [http://localhost/users/2/posts/7/comments]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-12-04 12:32:16) [GET]
+
+ActionController::RoutingError (No route matches "/users/2/posts/7/img01.jpg" with {:method=>:get}):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-12-04 12:32:21) [GET]
+  [4;35;1mUser Load (0.9ms)[0m   [0mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+  [4;36;1mPost Load (1.1ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".user_id = 1) [0m
+Rendered posts/_post_small (0.9ms)
+Rendered posts/_post_small (0.5ms)
+Rendered posts/_post_small (0.5ms)
+Rendered posts/_post_small (0.4ms)
+Rendered posts/_post_small (0.9ms)
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered posts/_form (6.0ms)
+Rendered users/_user (26.6ms)
+  [4;36;1mPost Load (0.7ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".user_id = 2) [0m
+Rendered posts/_post_small (0.6ms)
+Rendered posts/_post_small (0.6ms)
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered posts/_form (5.3ms)
+Rendered users/_user (10.3ms)
+Completed in 51ms (View: 37, DB: 4) | 200 OK [http://localhost/]
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
  FROM sqlite_master
  WHERE type = 'table' AND NOT name = 'sqlite_sequence'
 [0m
   [4;35;1mSQL (0.4ms)[0m   [0mSELECT version FROM schema_migrations[0m
-  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+Migrating to CreateComments (20091203162133)
+Migrating to CreatePosts (20091203162135)
+Migrating to CreateUsers (20091203162136)
+Migrating to CreateCredits (20091204173921)
+  [4;36;1mSQL (0.3ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCREATE TABLE "credits" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20091204173921')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0m SELECT name
  FROM sqlite_master
  WHERE type = 'table' AND NOT name = 'sqlite_sequence'
 [0m
-  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("comments")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("comments")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("credits")[0m
   [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("posts")[0m
   [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("users")[0m
 
 
-Processing UsersController#index (for 127.0.0.1 at 2009-12-03 16:23:44) [GET]
-  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" [0m
-Rendering template within layouts/application
-Rendering users/index
-Completed in 56ms (View: 39, DB: 1) | 200 OK [http://localhost/]
-
-
-Processing UsersController#new (for 127.0.0.1 at 2009-12-03 16:23:47) [GET]
-Rendering template within layouts/application
-Rendering users/new
-Rendered users/_form (7.3ms)
-Completed in 29ms (View: 19, DB: 0) | 200 OK [http://localhost/users/new]
-
-
-Processing UsersController#create (for 127.0.0.1 at 2009-12-03 16:24:03) [POST]
-  Parameters: {"commit"=>"Submit", "authenticity_token"=>"p/7ZBpw3BAxmkzYQebZ+hPwXqpZe9ocK2HfSMNTLJoQ=", "user"=>{"name"=>"Tan Mai", "email"=>"tansemail@corp.com"}}
-  [4;35;1mUser Create (0.5ms)[0m   [0mINSERT INTO "users" ("name", "created_at", "updated_at", "email") VALUES('Tan Mai', '2009-12-03 21:24:03', '2009-12-03 21:24:03', 'tansemail@corp.com')[0m
-Redirected to http://localhost:3004/users
-Completed in 24ms (DB: 0) | 302 Found [http://localhost/users]
-
-
-Processing UsersController#index (for 127.0.0.1 at 2009-12-03 16:24:03) [GET]
-  [4;36;1mUser Load (0.7ms)[0m   [0;1mSELECT * FROM "users" [0m
-Rendering template within layouts/application
-Rendering users/index
-  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".user_id = 1) [0m
-  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
-Rendered posts/_form (7.7ms)
-Rendered users/_user (96.7ms)
-Completed in 114ms (View: 104, DB: 1) | 200 OK [http://localhost/users]
-
-
-Processing PostsController#create (for 127.0.0.1 at 2009-12-03 16:24:35) [POST]
-  Parameters: {"commit"=>"Submit", "post"=>{"title"=>"on interviews", "body"=>"It is fun to insterview peopo"}, "authenticity_token"=>"p/7ZBpw3BAxmkzYQebZ+hPwXqpZe9ocK2HfSMNTLJoQ=", "user_id"=>"1"}
-  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
-  [4;36;1mPost Create (0.4ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "body", "title", "updated_at", "user_id") VALUES('2009-12-03 21:24:35', 'It is fun to insterview peopo', 'on interviews', '2009-12-03 21:24:35', 1)[0m
-Redirected to http://localhost:3004/users/1/posts
-Completed in 25ms (DB: 1) | 302 Found [http://localhost/users/1/posts]
-
-
-Processing PostsController#index (for 127.0.0.1 at 2009-12-03 16:24:35) [GET]
-  Parameters: {"user_id"=>"1"}
-  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
-Rendering template within layouts/application
-Rendering posts/index
-  [4;36;1mPost Load (0.5ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".user_id = 1) [0m
-  [4;35;1mComment Load (0.2ms)[0m   [0mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
-  [4;36;1mPost Load (0.5ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
-  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
-Rendered comments/_form (7.8ms)
-Rendered posts/_post (26.5ms)
-Completed in 60ms (View: 43, DB: 2) | 200 OK [http://localhost/users/1/posts]
-
-
-Processing UsersController#index (for 127.0.0.1 at 2009-12-03 16:24:53) [GET]
-  [4;36;1mUser Load (0.8ms)[0m   [0;1mSELECT * FROM "users" [0m
-Rendering template within layouts/application
-Rendering users/index
-  [4;35;1mPost Load (0.5ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".user_id = 1) [0m
-Rendered posts/_post_small (1.6ms)
-  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
-Rendered posts/_form (5.6ms)
-Rendered users/_user (26.9ms)
-Completed in 40ms (View: 29, DB: 2) | 200 OK [http://localhost/]
-
-
-Processing UsersController#index (for 127.0.0.1 at 2009-12-04 09:40:05) [GET]
+Processing UsersController#index (for 127.0.0.1 at 2009-12-04 12:40:09) [GET]
   [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" [0m
 Rendering template within layouts/application
 Rendering users/index
-  [4;35;1mPost Load (0.6ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".user_id = 1) [0m
-Rendered posts/_post_small (2.0ms)
-  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
-Rendered posts/_form (7.0ms)
-Rendered users/_user (53.0ms)
-Completed in 93ms (View: 74, DB: 2) | 200 OK [http://localhost/]
+  [4;35;1mPost Load (1.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".user_id = 1) [0m
+Rendered posts/_post_small (0.9ms)
+Rendered posts/_post_small (0.5ms)
+Rendered posts/_post_small (0.5ms)
+Rendered posts/_post_small (0.6ms)
+Rendered posts/_post_small (0.5ms)
+  [4;36;1mUser Load (6.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered posts/_form (13.0ms)
+Rendered users/_user (33.5ms)
+  [4;35;1mPost Load (0.8ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".user_id = 2) [0m
+Rendered posts/_post_small (0.5ms)
+Rendered posts/_post_small (0.5ms)
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered posts/_form (75.4ms)
+Rendered users/_user (80.4ms)
+Completed in 140ms (View: 121, DB: 10) | 200 OK [http://localhost/]
 
 
-Processing UsersController#index (for 127.0.0.1 at 2009-12-04 09:40:12) [GET]
+Processing UsersController#index (for 127.0.0.1 at 2009-12-04 12:41:43) [GET]
   [4;35;1mUser Load (0.8ms)[0m   [0mSELECT * FROM "users" [0m
 Rendering template within layouts/application
 Rendering users/index
-  [4;36;1mPost Load (0.5ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".user_id = 1) [0m
+  [4;36;1mPost Load (1.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".user_id = 1) [0m
 Rendered posts/_post_small (0.9ms)
+Rendered posts/_post_small (0.5ms)
+Rendered posts/_post_small (0.4ms)
+Rendered posts/_post_small (0.4ms)
+Rendered posts/_post_small (0.4ms)
   [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
-Rendered posts/_form (5.5ms)
-Rendered users/_user (20.7ms)
-Completed in 35ms (View: 23, DB: 2) | 200 OK [http://localhost/]
+Rendered posts/_form (6.1ms)
+Rendered users/_user (26.0ms)
+  [4;36;1mPost Load (0.9ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".user_id = 2) [0m
+Rendered posts/_post_small (0.5ms)
+Rendered posts/_post_small (0.4ms)
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered posts/_form (5.1ms)
+Rendered users/_user (10.1ms)
+
+ActionView::TemplateError (No route matches {:action=>"show", :controller=>"credits"}) on line #38 of app/views/layouts/application.html.erb:
+35:       <li class="active"><%= link_to "Home", :controller => "users" %></li>
+36:       <li><a href="#">Products</a></li>
+37:       <li><a href="#">About</a></li>
+38:       <li><%= link_to "Contact/Credit", :controller => "credits", :action => "show" %></li>
+39:     </ul>
+40:   </div>
+41: 
+
+    app/views/layouts/application.html.erb:38
+    app/controllers/users_controller.rb:27:in `index'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (58.4ms)
+Rendered rescues/_request_and_response (1.5ms)
+Rendering rescues/layout (internal_server_error)
 
 
-Processing UsersController#index (for 127.0.0.1 at 2009-12-04 09:47:58) [GET]
-  [4;36;1mUser Load (0.9ms)[0m   [0;1mSELECT * FROM "users" [0m
+Processing UsersController#index (for 127.0.0.1 at 2009-12-04 12:42:55) [GET]
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" [0m
 Rendering template within layouts/application
 Rendering users/index
-  [4;35;1mPost Load (0.5ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".user_id = 1) [0m
+  [4;35;1mPost Load (0.9ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".user_id = 1) [0m
 Rendered posts/_post_small (1.6ms)
+Rendered posts/_post_small (0.5ms)
+Rendered posts/_post_small (0.5ms)
+Rendered posts/_post_small (0.5ms)
+Rendered posts/_post_small (0.4ms)
   [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
-Rendered posts/_form (8.2ms)
-Rendered users/_user (53.4ms)
-Completed in 95ms (View: 76, DB: 2) | 200 OK [http://localhost/]
+Rendered posts/_form (6.8ms)
+Rendered users/_user (55.3ms)
+  [4;35;1mPost Load (0.9ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".user_id = 2) [0m
+Rendered posts/_post_small (0.6ms)
+Rendered posts/_post_small (0.5ms)
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered posts/_form (4.9ms)
+Rendered users/_user (10.0ms)
+
+ActionView::TemplateError (No route matches {:action=>"show", :controller=>"credits"}) on line #38 of app/views/layouts/application.html.erb:
+35:       <li class="active"><%= link_to "Home", :controller => "users" %></li>
+36:       <li><a href="#">Products</a></li>
+37:       <li><a href="#">About</a></li>
+38:       <li><%= link_to "Contact/Credit", :controller => "credits", :action => "show" %></li>
+39:     </ul>
+40:   </div>
+41: 
+
+    app/views/layouts/application.html.erb:38
+    app/controllers/users_controller.rb:27:in `index'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (133.5ms)
+Rendered rescues/_request_and_response (1.5ms)
+Rendering rescues/layout (internal_server_error)
 
 
-Processing UsersController#index (for 127.0.0.1 at 2009-12-04 09:49:33) [GET]
+Processing UsersController#index (for 127.0.0.1 at 2009-12-04 12:43:00) [GET]
+  [4;35;1mUser Load (0.8ms)[0m   [0mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+  [4;36;1mPost Load (0.9ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".user_id = 1) [0m
+Rendered posts/_post_small (1.0ms)
+Rendered posts/_post_small (0.5ms)
+Rendered posts/_post_small (0.4ms)
+Rendered posts/_post_small (0.4ms)
+Rendered posts/_post_small (0.4ms)
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered posts/_form (6.1ms)
+Rendered users/_user (24.8ms)
+  [4;36;1mPost Load (0.5ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".user_id = 2) [0m
+Rendered posts/_post_small (0.5ms)
+Rendered posts/_post_small (0.4ms)
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered posts/_form (4.9ms)
+Rendered users/_user (9.0ms)
+
+ActionView::TemplateError (No route matches {:action=>"show", :controller=>"credits"}) on line #38 of app/views/layouts/application.html.erb:
+35:       <li class="active"><%= link_to "Home", :controller => "users" %></li>
+36:       <li><a href="#">Products</a></li>
+37:       <li><a href="#">About</a></li>
+38:       <li><%= link_to "Contact/Credit", :controller => "credits", :action => "show" %></li>
+39:     </ul>
+40:   </div>
+41: 
+
+    app/views/layouts/application.html.erb:38
+    app/controllers/users_controller.rb:27:in `index'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (56.9ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-12-04 12:43:46) [GET]
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+  [4;35;1mPost Load (0.9ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".user_id = 1) [0m
+Rendered posts/_post_small (1.6ms)
+Rendered posts/_post_small (0.5ms)
+Rendered posts/_post_small (0.6ms)
+Rendered posts/_post_small (0.6ms)
+Rendered posts/_post_small (0.5ms)
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered posts/_form (6.7ms)
+Rendered users/_user (54.4ms)
+  [4;35;1mPost Load (0.6ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".user_id = 2) [0m
+Rendered posts/_post_small (0.5ms)
+Rendered posts/_post_small (0.4ms)
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered posts/_form (4.9ms)
+Rendered users/_user (9.1ms)
+
+ActionView::TemplateError (No route matches {:action=>"show", :controller=>"credits"}) on line #38 of app/views/layouts/application.html.erb:
+35:       <li class="active"><%= link_to "Home", :controller => "users" %></li>
+36:       <li><a href="#">Products</a></li>
+37:       <li><a href="#">About</a></li>
+38:       <li><%= link_to "Contact/Credit", :controller => "credits", :action => "show" %></li>
+39:     </ul>
+40:   </div>
+41: 
+
+    app/views/layouts/application.html.erb:38
+    app/controllers/users_controller.rb:27:in `index'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (128.8ms)
+Rendered rescues/_request_and_response (1.7ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-12-04 12:45:01) [GET]
+  [4;35;1mUser Load (0.8ms)[0m   [0mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+  [4;36;1mPost Load (1.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".user_id = 1) [0m
+Rendered posts/_post_small (1.0ms)
+Rendered posts/_post_small (0.5ms)
+Rendered posts/_post_small (0.4ms)
+Rendered posts/_post_small (0.4ms)
+Rendered posts/_post_small (0.4ms)
+  [4;35;1mUser Load (0.7ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered posts/_form (6.3ms)
+Rendered users/_user (28.6ms)
+  [4;36;1mPost Load (0.6ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".user_id = 2) [0m
+Rendered posts/_post_small (0.5ms)
+Rendered posts/_post_small (0.4ms)
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered posts/_form (4.9ms)
+Rendered users/_user (9.1ms)
+
+ActionView::TemplateError (No route matches {:action=>"show", :controller=>"credit"}) on line #38 of app/views/layouts/application.html.erb:
+35:       <li class="active"><%= link_to "Home", :controller => "users" %></li>
+36:       <li><a href="#">Products</a></li>
+37:       <li><a href="#">About</a></li>
+38:       <li><%= link_to "Contact/Credit", :controller => "credit", :action => "show" %></li>
+39:     </ul>
+40:   </div>
+41: 
+
+    app/views/layouts/application.html.erb:38
+    app/controllers/users_controller.rb:27:in `index'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (57.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing CreditsController#index (for 127.0.0.1 at 2009-12-04 12:45:50) [GET]
+  [4;36;1mCredit Load (0.5ms)[0m   [0;1mSELECT * FROM "credits" [0m
+Rendering template within layouts/credits
+Rendering credits/index
+Completed in 26ms (View: 17, DB: 1) | 200 OK [http://localhost/credits]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-12-04 12:46:12) [GET]
   [4;35;1mUser Load (0.9ms)[0m   [0mSELECT * FROM "users" [0m
 Rendering template within layouts/application
 Rendering users/index
-  [4;36;1mPost Load (0.5ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".user_id = 1) [0m
-Rendered posts/_post_small (1.0ms)
-  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
-Rendered posts/_form (5.7ms)
-Rendered users/_user (21.2ms)
-Completed in 35ms (View: 24, DB: 2) | 200 OK [http://localhost/]
-
-
-Processing UsersController#index (for 127.0.0.1 at 2009-12-04 09:49:37) [GET]
-  [4;36;1mUser Load (0.7ms)[0m   [0;1mSELECT * FROM "users" [0m
-Rendering template within layouts/application
-Rendering users/index
-  [4;35;1mPost Load (0.5ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".user_id = 1) [0m
-Rendered posts/_post_small (1.2ms)
-  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
-Rendered posts/_form (6.0ms)
-Rendered users/_user (49.4ms)
-Completed in 63ms (View: 52, DB: 2) | 200 OK [http://localhost/]
-
-
-Processing UsersController#index (for 127.0.0.1 at 2009-12-04 09:53:25) [GET]
-  [4;35;1mUser Load (0.7ms)[0m   [0mSELECT * FROM "users" [0m
-Rendering template within layouts/application
-Rendering users/index
-  [4;36;1mPost Load (0.5ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".user_id = 1) [0m
+  [4;36;1mPost Load (0.9ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".user_id = 1) [0m
 Rendered posts/_post_small (0.9ms)
+Rendered posts/_post_small (0.4ms)
+Rendered posts/_post_small (0.4ms)
+Rendered posts/_post_small (0.4ms)
+Rendered posts/_post_small (0.4ms)
   [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
-Rendered posts/_form (5.9ms)
-Rendered users/_user (21.5ms)
-Completed in 44ms (View: 33, DB: 2) | 200 OK [http://localhost/]
+Rendered posts/_form (5.6ms)
+Rendered users/_user (24.8ms)
+  [4;36;1mPost Load (0.6ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".user_id = 2) [0m
+Rendered posts/_post_small (0.5ms)
+Rendered posts/_post_small (0.4ms)
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered posts/_form (5.1ms)
+Rendered users/_user (9.3ms)
+
+ActionView::TemplateError (No route matches {:action=>"show", :controller=>"credits"}) on line #38 of app/views/layouts/application.html.erb:
+35:       <li class="active"><%= link_to "Home", :controller => "users" %></li>
+36:       <li><a href="#">Products</a></li>
+37:       <li><a href="#">About</a></li>
+38:       <li><%= link_to "Contact/Credit", :controller => "credits", :action => "show" %></li>
+39:     </ul>
+40:   </div>
+41: 
+
+    app/views/layouts/application.html.erb:38
+    app/controllers/users_controller.rb:27:in `index'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (58.2ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
 
 
-Processing UsersController#index (for 127.0.0.1 at 2009-12-04 09:56:58) [GET]
-  [4;36;1mUser Load (0.7ms)[0m   [0;1mSELECT * FROM "users" [0m
-Rendering template within layouts/application
-Rendering users/index
-  [4;35;1mPost Load (0.4ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".user_id = 1) [0m
-Rendered posts/_post_small (0.9ms)
-  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
-Rendered posts/_form (5.5ms)
-Rendered users/_user (21.6ms)
-Completed in 44ms (View: 33, DB: 2) | 200 OK [http://localhost/]
-
-
-Processing UsersController#index (for 127.0.0.1 at 2009-12-04 09:58:15) [GET]
-  [4;35;1mUser Load (1.2ms)[0m   [0mSELECT * FROM "users" [0m
-Rendering template within layouts/application
-Rendering users/index
-  [4;36;1mPost Load (0.6ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".user_id = 1) [0m
-Rendered posts/_post_small (1.0ms)
-  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
-Rendered posts/_form (6.5ms)
-Rendered users/_user (23.5ms)
-Completed in 48ms (View: 36, DB: 2) | 200 OK [http://localhost/]
-
-
-Processing UsersController#index (for 127.0.0.1 at 2009-12-04 10:01:54) [GET]
-  [4;36;1mUser Load (1.1ms)[0m   [0;1mSELECT * FROM "users" [0m
-Rendering template within layouts/application
-Rendering users/index
-  [4;35;1mPost Load (0.4ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".user_id = 1) [0m
-Rendered posts/_post_small (0.8ms)
-  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
-Rendered posts/_form (5.5ms)
-Rendered users/_user (20.1ms)
-Completed in 43ms (View: 32, DB: 2) | 200 OK [http://localhost/]
-
-
-Processing UsersController#index (for 127.0.0.1 at 2009-12-04 10:04:39) [GET]
-  [4;35;1mUser Load (0.7ms)[0m   [0mSELECT * FROM "users" [0m
-Rendering template within layouts/application
-Rendering users/index
-  [4;36;1mPost Load (0.5ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".user_id = 1) [0m
-Rendered posts/_post_small (0.9ms)
-  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
-Rendered posts/_form (6.4ms)
-Rendered users/_user (22.6ms)
-Completed in 45ms (View: 34, DB: 2) | 200 OK [http://localhost/]
-
-
-Processing UsersController#index (for 127.0.0.1 at 2009-12-04 10:05:07) [GET]
-  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" [0m
-Rendering template within layouts/application
-Rendering users/index
-  [4;35;1mPost Load (0.4ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".user_id = 1) [0m
-Rendered posts/_post_small (0.9ms)
-  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
-Rendered posts/_form (6.2ms)
-Rendered users/_user (21.0ms)
-Completed in 43ms (View: 33, DB: 2) | 200 OK [http://localhost/]
-
-
-Processing UsersController#index (for 127.0.0.1 at 2009-12-04 10:06:47) [GET]
-  [4;35;1mUser Load (0.7ms)[0m   [0mSELECT * FROM "users" [0m
-Rendering template within layouts/application
-Rendering users/index
-  [4;36;1mPost Load (0.5ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".user_id = 1) [0m
-Rendered posts/_post_small (1.0ms)
-  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
-Rendered posts/_form (6.0ms)
-Rendered users/_user (22.6ms)
-Completed in 107ms (View: 35, DB: 2) | 200 OK [http://localhost/]
-
-
-Processing UsersController#index (for 127.0.0.1 at 2009-12-04 10:06:52) [GET]
+Processing UsersController#index (for 127.0.0.1 at 2009-12-04 12:46:41) [GET]
   [4;36;1mUser Load (0.8ms)[0m   [0;1mSELECT * FROM "users" [0m
 Rendering template within layouts/application
 Rendering users/index
-  [4;35;1mPost Load (0.5ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".user_id = 1) [0m
-Rendered posts/_post_small (0.9ms)
+  [4;35;1mPost Load (0.9ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".user_id = 1) [0m
+Rendered posts/_post_small (1.0ms)
+Rendered posts/_post_small (0.5ms)
+Rendered posts/_post_small (0.5ms)
+Rendered posts/_post_small (0.5ms)
+Rendered posts/_post_small (0.5ms)
   [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
-Rendered posts/_form (6.2ms)
-Rendered users/_user (23.8ms)
-Completed in 38ms (View: 27, DB: 2) | 200 OK [http://localhost/]
+Rendered posts/_form (5.7ms)
+Rendered users/_user (26.2ms)
+  [4;35;1mPost Load (0.7ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".user_id = 2) [0m
+Rendered posts/_post_small (0.6ms)
+Rendered posts/_post_small (0.6ms)
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered posts/_form (5.1ms)
+Rendered users/_user (10.3ms)
+Completed in 132ms (View: 119, DB: 3) | 200 OK [http://localhost/]
 
 
-Processing UsersController#index (for 127.0.0.1 at 2009-12-04 10:12:58) [GET]
-  [4;35;1mUser Load (1.1ms)[0m   [0mSELECT * FROM "users" [0m
+Processing UsersController#index (for 127.0.0.1 at 2009-12-04 12:47:04) [GET]
+  [4;35;1mUser Load (0.8ms)[0m   [0mSELECT * FROM "users" [0m
 Rendering template within layouts/application
 Rendering users/index
-  [4;36;1mPost Load (0.4ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".user_id = 1) [0m
+  [4;36;1mPost Load (0.9ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".user_id = 1) [0m
 Rendered posts/_post_small (0.8ms)
+Rendered posts/_post_small (0.4ms)
+Rendered posts/_post_small (2.8ms)
+Rendered posts/_post_small (0.6ms)
+Rendered posts/_post_small (0.5ms)
   [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
-Rendered posts/_form (5.5ms)
-Rendered users/_user (20.0ms)
-Completed in 42ms (View: 32, DB: 2) | 200 OK [http://localhost/]
+Rendered posts/_form (5.8ms)
+Rendered users/_user (26.8ms)
+  [4;36;1mPost Load (3.7ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".user_id = 2) [0m
+Rendered posts/_post_small (0.5ms)
+Rendered posts/_post_small (0.4ms)
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered posts/_form (4.9ms)
+Rendered users/_user (12.2ms)
+Completed in 62ms (View: 46, DB: 6) | 200 OK [http://localhost/]
 
 
-Processing UsersController#index (for 127.0.0.1 at 2009-12-04 10:13:54) [GET]
-  [4;36;1mUser Load (1.1ms)[0m   [0;1mSELECT * FROM "users" [0m
+Processing CreditsController#index (for 127.0.0.1 at 2009-12-04 12:47:06) [GET]
+  [4;36;1mCredit Load (1.0ms)[0m   [0;1mSELECT * FROM "credits" [0m
+Rendering template within layouts/credits
+Rendering credits/index
+Completed in 11ms (View: 2, DB: 1) | 200 OK [http://localhost/credits]
+
+
+Processing CreditsController#index (for 127.0.0.1 at 2009-12-04 12:47:11) [GET]
+  [4;35;1mCredit Load (0.6ms)[0m   [0mSELECT * FROM "credits" [0m
+Rendering template within layouts/credits
+Rendering credits/index
+Completed in 11ms (View: 2, DB: 1) | 200 OK [http://localhost/credits]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-12-04 12:47:38) [GET]
+  [4;36;1mUser Load (0.8ms)[0m   [0;1mSELECT * FROM "users" [0m
 Rendering template within layouts/application
 Rendering users/index
-  [4;35;1mPost Load (0.5ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".user_id = 1) [0m
+  [4;35;1mPost Load (0.9ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".user_id = 1) [0m
 Rendered posts/_post_small (0.9ms)
+Rendered posts/_post_small (0.5ms)
+Rendered posts/_post_small (0.5ms)
+Rendered posts/_post_small (0.5ms)
+Rendered posts/_post_small (0.5ms)
   [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
-Rendered posts/_form (6.2ms)
-Rendered users/_user (22.5ms)
-Completed in 47ms (View: 35, DB: 2) | 200 OK [http://localhost/]
+Rendered posts/_form (5.9ms)
+Rendered users/_user (27.1ms)
+  [4;35;1mPost Load (0.6ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".user_id = 2) [0m
+Rendered posts/_post_small (0.5ms)
+Rendered posts/_post_small (0.6ms)
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered posts/_form (5.4ms)
+Rendered users/_user (10.3ms)
+Completed in 114ms (View: 39, DB: 3) | 200 OK [http://localhost/]
 
 
-Processing UsersController#index (for 127.0.0.1 at 2009-12-04 10:18:39) [GET]
+Processing CreditsController#index (for 127.0.0.1 at 2009-12-04 12:47:40) [GET]
+  [4;35;1mCredit Load (0.5ms)[0m   [0mSELECT * FROM "credits" [0m
+Rendering template within layouts/application
+Rendering credits/index
+Completed in 12ms (View: 3, DB: 1) | 200 OK [http://localhost/credits]
+
+
+Processing CreditsController#index (for 127.0.0.1 at 2009-12-04 12:47:41) [GET]
+  [4;36;1mCredit Load (0.5ms)[0m   [0;1mSELECT * FROM "credits" [0m
+Rendering template within layouts/application
+Rendering credits/index
+Completed in 11ms (View: 2, DB: 0) | 200 OK [http://localhost/credits]
+
+
+Processing CreditsController#index (for 127.0.0.1 at 2009-12-04 12:49:51) [GET]
+  [4;35;1mCredit Load (0.5ms)[0m   [0mSELECT * FROM "credits" [0m
+Rendering template within layouts/application
+Rendering credits/index
+
+ActionView::TemplateError (No route matches {:action=>"show", :controller=>"credits"}) on line #38 of app/views/layouts/application.html.erb:
+35:       <li class="active"><%= link_to "Home", :controller => "users" %></li>
+36:       <li><a href="#">Products</a></li>
+37:       <li><a href="#">About</a></li>
+38:       <li><%= link_to "Contact/Credits", :controller => "credits", :action => "show" %></li>
+39:     </ul>
+40:   </div>
+41: 
+
+    app/views/layouts/application.html.erb:38
+    app/controllers/credits_controller.rb:7:in `index'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (133.5ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-12-04 12:49:58) [GET]
+  [4;36;1mUser Load (1.2ms)[0m   [0;1mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+  [4;35;1mPost Load (1.1ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".user_id = 1) [0m
+Rendered posts/_post_small (1.0ms)
+Rendered posts/_post_small (0.6ms)
+Rendered posts/_post_small (0.6ms)
+Rendered posts/_post_small (0.6ms)
+Rendered posts/_post_small (0.6ms)
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered posts/_form (6.9ms)
+Rendered users/_user (31.0ms)
+  [4;35;1mPost Load (0.9ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".user_id = 2) [0m
+Rendered posts/_post_small (0.6ms)
+Rendered posts/_post_small (0.6ms)
+  [4;36;1mUser Load (0.7ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered posts/_form (6.0ms)
+Rendered users/_user (11.6ms)
+
+ActionView::TemplateError (No route matches {:action=>"show", :controller=>"credits"}) on line #38 of app/views/layouts/application.html.erb:
+35:       <li class="active"><%= link_to "Home", :controller => "users" %></li>
+36:       <li><a href="#">Products</a></li>
+37:       <li><a href="#">About</a></li>
+38:       <li><%= link_to "Contact/Credits", :controller => "credits", :action => "show" %></li>
+39:     </ul>
+40:   </div>
+41: 
+
+    app/views/layouts/application.html.erb:38
+    app/controllers/users_controller.rb:27:in `index'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (57.6ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-12-04 12:50:46) [GET]
+  [4;35;1mUser Load (7.3ms)[0m   [0mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+  [4;36;1mPost Load (0.9ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".user_id = 1) [0m
+Rendered posts/_post_small (0.8ms)
+Rendered posts/_post_small (0.4ms)
+Rendered posts/_post_small (0.4ms)
+Rendered posts/_post_small (0.5ms)
+Rendered posts/_post_small (0.4ms)
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered posts/_form (5.9ms)
+Rendered users/_user (23.9ms)
+  [4;36;1mPost Load (0.6ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".user_id = 2) [0m
+Rendered posts/_post_small (0.5ms)
+Rendered posts/_post_small (0.4ms)
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered posts/_form (5.0ms)
+Rendered users/_user (8.9ms)
+Completed in 133ms (View: 115, DB: 10) | 200 OK [http://localhost/]
+
+
+Processing CreditsController#index (for 127.0.0.1 at 2009-12-04 12:50:52) [GET]
+  [4;36;1mCredit Load (0.7ms)[0m   [0;1mSELECT * FROM "credits" [0m
+Rendering template within layouts/application
+Rendering credits/index
+Completed in 12ms (View: 3, DB: 1) | 200 OK [http://localhost/credits]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-12-04 12:52:09) [GET]
+  [4;35;1mUser Load (0.8ms)[0m   [0mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+  [4;36;1mPost Load (0.9ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".user_id = 1) [0m
+Rendered posts/_post_small (0.9ms)
+Rendered posts/_post_small (0.5ms)
+Rendered posts/_post_small (0.5ms)
+Rendered posts/_post_small (0.4ms)
+Rendered posts/_post_small (0.5ms)
+  [4;35;1mUser Load (2.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered posts/_form (7.7ms)
+Rendered users/_user (29.8ms)
+  [4;36;1mPost Load (0.6ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".user_id = 2) [0m
+Rendered posts/_post_small (0.5ms)
+Rendered posts/_post_small (0.5ms)
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered posts/_form (5.1ms)
+Rendered users/_user (9.4ms)
+Completed in 52ms (View: 38, DB: 5) | 200 OK [http://localhost/]
+
+
+Processing CreditsController#index (for 127.0.0.1 at 2009-12-04 12:52:12) [GET]
+  [4;36;1mCredit Load (0.5ms)[0m   [0;1mSELECT * FROM "credits" [0m
+Rendering template within layouts/application
+Rendering credits/index
+Completed in 11ms (View: 3, DB: 0) | 200 OK [http://localhost/credits]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-12-04 12:53:05) [GET]
   [4;35;1mUser Load (0.7ms)[0m   [0mSELECT * FROM "users" [0m
 Rendering template within layouts/application
 Rendering users/index
-  [4;36;1mPost Load (0.4ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".user_id = 1) [0m
-Rendered posts/_post_small (0.9ms)
+  [4;36;1mPost Load (1.1ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".user_id = 1) [0m
+Rendered posts/_post_small (0.8ms)
+Rendered posts/_post_small (0.4ms)
+Rendered posts/_post_small (0.4ms)
+Rendered posts/_post_small (0.4ms)
+Rendered posts/_post_small (0.4ms)
   [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
 Rendered posts/_form (5.7ms)
-Rendered users/_user (21.0ms)
-Completed in 43ms (View: 33, DB: 2) | 200 OK [http://localhost/]
+Rendered users/_user (24.3ms)
+  [4;36;1mPost Load (0.6ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".user_id = 2) [0m
+Rendered posts/_post_small (0.4ms)
+Rendered posts/_post_small (0.4ms)
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered posts/_form (5.0ms)
+Rendered users/_user (9.2ms)
+
+ActionView::TemplateError (No route matches {:action=>"show", :controller=>"credits"}) on line #38 of app/views/layouts/application.html.erb:
+35:       <li class="active"><%= link_to "Home", :controller => "users" %></li>
+36:       <li><a href="#">Products</a></li>
+37:       <li><a href="#">About</a></li>
+38:       <li><%= link_to "Contact/Credits", :controller => "credits", :action => "show" %></li>
+39: 
+40: 
+41: 
+
+    app/views/layouts/application.html.erb:38
+    app/controllers/users_controller.rb:27:in `index'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (86.6ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-12-04 12:56:24) [GET]
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+  [4;35;1mPost Load (1.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".user_id = 1) [0m
+Rendered posts/_post_small (0.9ms)
+Rendered posts/_post_small (0.5ms)
+Rendered posts/_post_small (0.5ms)
+Rendered posts/_post_small (0.5ms)
+Rendered posts/_post_small (0.6ms)
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered posts/_form (6.3ms)
+Rendered users/_user (27.0ms)
+  [4;35;1mPost Load (0.7ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".user_id = 2) [0m
+Rendered posts/_post_small (0.5ms)
+Rendered posts/_post_small (0.4ms)
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered posts/_form (5.4ms)
+Rendered users/_user (10.0ms)
+
+ActionView::TemplateError (No route matches {:action=>"show", :controller=>"credits"}) on line #38 of app/views/layouts/application.html.erb:
+35:       <li class="active"><%= link_to "Home", :controller => "users" %></li>
+36:       <li><a href="#">Products</a></li>
+37:       <li><a href="#">About</a></li>
+38:       <li><%= link_to "Contact/Credits", :controller => "credits", :action => "show" %></li>
+39: 
+40:     </ul>
+41:   </div>
+
+    app/views/layouts/application.html.erb:38
+    app/controllers/users_controller.rb:27:in `index'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (146.5ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-12-04 12:57:41) [GET]
+  [4;35;1mUser Load (0.8ms)[0m   [0mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+  [4;36;1mPost Load (0.9ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".user_id = 1) [0m
+Rendered posts/_post_small (0.9ms)
+Rendered posts/_post_small (0.5ms)
+Rendered posts/_post_small (0.4ms)
+Rendered posts/_post_small (0.4ms)
+Rendered posts/_post_small (0.4ms)
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered posts/_form (5.5ms)
+Rendered users/_user (24.3ms)
+  [4;36;1mPost Load (0.6ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".user_id = 2) [0m
+Rendered posts/_post_small (0.5ms)
+Rendered posts/_post_small (0.4ms)
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered posts/_form (4.9ms)
+Rendered users/_user (9.0ms)
+Completed in 62ms (View: 48, DB: 3) | 200 OK [http://localhost/]
+
+
+Processing PostsController#create (for 127.0.0.1 at 2009-12-04 12:57:54) [POST]
+  Parameters: {"commit"=>"Submit", "post"=>{"title"=>"", "body"=>""}, "authenticity_token"=>"p/7ZBpw3BAxmkzYQebZ+hPwXqpZe9ocK2HfSMNTLJoQ=", "user_id"=>"2"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mPost Create (0.5ms)[0m   [0mINSERT INTO "posts" ("created_at", "body", "title", "updated_at", "user_id") VALUES('2009-12-04 17:57:54', '', '', '2009-12-04 17:57:54', 2)[0m
+Redirected to http://localhost:3000/users/2/posts
+Completed in 26ms (DB: 1) | 302 Found [http://localhost/users/2/posts]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-12-04 12:57:54) [GET]
+  Parameters: {"user_id"=>"2"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering posts/index
+  [4;35;1mPost Load (0.7ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".user_id = 2) [0m
+  [4;36;1mComment Load (0.2ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments".post_id = 6) [0m
+  [4;35;1mPost Load (0.5ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered comments/_form (9.1ms)
+Rendered posts/_post (97.5ms)
+  [4;35;1mComment Load (0.4ms)[0m   [0mSELECT * FROM "comments" WHERE ("comments".post_id = 7) [0m
+Rendered comments/_comment_small (1.3ms)
+  [4;36;1mPost Load (0.5ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 7) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered comments/_form (5.9ms)
+Rendered posts/_post (15.7ms)
+  [4;36;1mComment Load (0.3ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments".post_id = 8) [0m
+  [4;35;1mPost Load (0.6ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 8) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered comments/_form (6.2ms)
+Rendered posts/_post (8.6ms)
+Completed in 157ms (View: 137, DB: 4) | 200 OK [http://localhost/users/2/posts]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-12-04 13:09:37) [GET]
+  Parameters: {"user_id"=>"2"}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering posts/index
+  [4;36;1mPost Load (0.7ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".user_id = 2) [0m
+  [4;35;1mComment Load (0.2ms)[0m   [0mSELECT * FROM "comments" WHERE ("comments".post_id = 6) [0m
+  [4;36;1mPost Load (0.4ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered comments/_form (10.1ms)
+Rendered posts/_post (21.2ms)
+  [4;36;1mComment Load (0.5ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments".post_id = 7) [0m
+Rendered comments/_comment_small (0.7ms)
+  [4;35;1mPost Load (2.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 7) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered comments/_form (7.5ms)
+Rendered posts/_post (11.5ms)
+  [4;35;1mComment Load (0.2ms)[0m   [0mSELECT * FROM "comments" WHERE ("comments".post_id = 8) [0m
+  [4;36;1mPost Load (0.4ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 8) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered comments/_form (11.8ms)
+Rendered posts/_post (14.3ms)
+
+ActionView::TemplateError (credit_url failed to generate from {:action=>"show", :controller=>"credits"} - you may have ambiguous routes, or you may need to supply additional parameters for this route.  content_url has the following required parameters: ["credits", :id] - are they all satisfied?) on line #40 of app/views/layouts/application.html.erb:
+37:       <li><a href="#">About</a></li>
+38:       <li>
+39: 
+40: 	<%= link_to "c/c", credit_path() %>
+41: 	<!-- <# %= link_to "Contact/Credits", :controller => "credits", :action => "show" %> -->
+42:       </li>
+43: 
+
+    (eval):16:in `credit_path'
+    app/views/layouts/application.html.erb:40
+    app/controllers/posts_controller.rb:27:in `index'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (59.7ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-12-04 13:10:16) [GET]
+  Parameters: {"user_id"=>"2"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering posts/index
+  [4;35;1mPost Load (0.7ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".user_id = 2) [0m
+  [4;36;1mComment Load (0.3ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments".post_id = 6) [0m
+  [4;35;1mPost Load (0.4ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered comments/_form (7.1ms)
+Rendered posts/_post (18.3ms)
+  [4;35;1mComment Load (0.5ms)[0m   [0mSELECT * FROM "comments" WHERE ("comments".post_id = 7) [0m
+Rendered comments/_comment_small (0.6ms)
+  [4;36;1mPost Load (0.5ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 7) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered comments/_form (5.7ms)
+Rendered posts/_post (9.5ms)
+  [4;36;1mComment Load (0.2ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments".post_id = 8) [0m
+  [4;35;1mPost Load (0.6ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 8) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered comments/_form (6.3ms)
+Rendered posts/_post (8.7ms)
+
+ActionView::TemplateError (credit_url failed to generate from {:action=>"show", :id=>nil, :controller=>"credits"}, expected: {:action=>"show", :controller=>"credits"}, diff: {:id=>nil}) on line #40 of app/views/layouts/application.html.erb:
+37:       <li><a href="#">About</a></li>
+38:       <li>
+39: 
+40: 	<%= link_to "c/c", credit_path(nil) %>
+41: 	<!-- <# %= link_to "Contact/Credits", :controller => "credits", :action => "show" %> -->
+42:       </li>
+43: 
+
+    (eval):16:in `credit_path'
+    app/views/layouts/application.html.erb:40
+    app/controllers/posts_controller.rb:27:in `index'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (58.5ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-12-04 13:10:22) [GET]
+  [4;35;1mUser Load (0.9ms)[0m   [0mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+  [4;36;1mPost Load (0.9ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".user_id = 1) [0m
+Rendered posts/_post_small (0.9ms)
+Rendered posts/_post_small (0.5ms)
+Rendered posts/_post_small (0.5ms)
+Rendered posts/_post_small (0.5ms)
+Rendered posts/_post_small (0.4ms)
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered posts/_form (5.4ms)
+Rendered users/_user (23.6ms)
+  [4;36;1mPost Load (0.7ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".user_id = 2) [0m
+Rendered posts/_post_small (0.5ms)
+Rendered posts/_post_small (0.4ms)
+Rendered posts/_post_small (0.4ms)
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered posts/_form (5.2ms)
+Rendered users/_user (10.1ms)
+
+ActionView::TemplateError (credit_url failed to generate from {:action=>"show", :id=>nil, :controller=>"credits"}, expected: {:action=>"show", :controller=>"credits"}, diff: {:id=>nil}) on line #40 of app/views/layouts/application.html.erb:
+37:       <li><a href="#">About</a></li>
+38:       <li>
+39: 
+40: 	<%= link_to "c/c", credit_path(nil) %>
+41: 	<!-- <# %= link_to "Contact/Credits", :controller => "credits", :action => "show" %> -->
+42:       </li>
+43: 
+
+    (eval):16:in `credit_path'
+    app/views/layouts/application.html.erb:40
+    app/controllers/users_controller.rb:27:in `index'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (138.3ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-12-04 13:11:35) [GET]
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+  [4;35;1mPost Load (0.9ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".user_id = 1) [0m
+Rendered posts/_post_small (0.9ms)
+Rendered posts/_post_small (0.4ms)
+Rendered posts/_post_small (0.4ms)
+Rendered posts/_post_small (0.4ms)
+Rendered posts/_post_small (0.5ms)
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered posts/_form (5.8ms)
+Rendered users/_user (23.9ms)
+  [4;35;1mPost Load (0.7ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".user_id = 2) [0m
+Rendered posts/_post_small (0.5ms)
+Rendered posts/_post_small (0.4ms)
+Rendered posts/_post_small (0.4ms)
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered posts/_form (4.9ms)
+Rendered users/_user (10.0ms)
+
+ActionView::TemplateError (No route matches {:action=>"show", :controller=>"credits"}) on line #40 of app/views/layouts/application.html.erb:
+37:       <li><a href="#">About</a></li>
+38:       <li>
+39: 
+40: 	<%= link_to "c/c", :controller => "credits", :action => "show" %>
+41: 	<!-- <# %= link_to "Contact/Credits" %> -->
+42:       </li>
+43: 
+
+    app/views/layouts/application.html.erb:40
+    app/controllers/users_controller.rb:27:in `index'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (137.4ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-12-04 13:11:36) [GET]
+  [4;35;1mUser Load (0.8ms)[0m   [0mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+  [4;36;1mPost Load (1.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".user_id = 1) [0m
+Rendered posts/_post_small (0.9ms)
+Rendered posts/_post_small (0.5ms)
+Rendered posts/_post_small (0.5ms)
+Rendered posts/_post_small (0.5ms)
+Rendered posts/_post_small (0.5ms)
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered posts/_form (5.8ms)
+Rendered users/_user (25.8ms)
+  [4;36;1mPost Load (0.7ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".user_id = 2) [0m
+Rendered posts/_post_small (0.5ms)
+Rendered posts/_post_small (0.5ms)
+Rendered posts/_post_small (0.5ms)
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered posts/_form (5.1ms)
+Rendered users/_user (10.4ms)
+
+ActionView::TemplateError (No route matches {:action=>"show", :controller=>"credits"}) on line #40 of app/views/layouts/application.html.erb:
+37:       <li><a href="#">About</a></li>
+38:       <li>
+39: 
+40: 	<%= link_to "c/c", :controller => "credits", :action => "show" %>
+41: 	<!-- <# %= link_to "Contact/Credits" %> -->
+42:       </li>
+43: 
+
+    app/views/layouts/application.html.erb:40
+    app/controllers/users_controller.rb:27:in `index'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (57.6ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing CreditsController#show (for 127.0.0.1 at 2009-12-04 13:12:01) [GET]
+  Parameters: {"id"=>"1"}
+Rendering template within layouts/application
+Rendering credits/show
+Completed in 12ms (View: 8, DB: 0) | 200 OK [http://localhost/credits/1]
+
+
+Processing CreditsController#show (for 127.0.0.1 at 2009-12-04 13:18:12) [GET]
+  Parameters: {"id"=>"1"}
+Rendering template within layouts/application
+Rendering credits/show
+Completed in 17ms (View: 13, DB: 0) | 200 OK [http://localhost/credits/1]
+
+
+Processing CreditsController#index (for 127.0.0.1 at 2009-12-04 13:18:14) [GET]
+Rendering template within layouts/application
+Rendering credits/show
+Completed in 7ms (View: 3, DB: 0) | 200 OK [http://localhost/credits]
+
+
+Processing CreditsController#index (for 127.0.0.1 at 2009-12-04 13:21:10) [GET]
+Rendering template within layouts/application
+Rendering credits/show
+Completed in 12ms (View: 9, DB: 0) | 200 OK [http://localhost/credits]
+
+
+Processing CreditsController#index (for 127.0.0.1 at 2009-12-04 13:21:29) [GET]
+Rendering template within layouts/application
+Rendering credits/show
+Completed in 7ms (View: 3, DB: 0) | 200 OK [http://localhost/credits]
