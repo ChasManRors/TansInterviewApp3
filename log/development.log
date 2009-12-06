@@ -9700,3 +9700,163 @@ Processing ContractsController#alerts (for 127.0.0.1 at 2009-12-06 12:14:17) [GE
   [4;36;1mAlert Load (0.7ms)[0m   [0;1mSELECT * FROM "alerts" WHERE ("alerts".contract_id = 1) LIMIT 10 OFFSET 0[0m
   [4;35;1mSQL (0.5ms)[0m   [0mSELECT count(*) AS count_all FROM "alerts" WHERE ("alerts".contract_id = 1) [0m
 Completed in 27ms (View: 1, DB: 2) | 200 OK [http://localhost/contracts/alerts?q=1&id=1&_search=false&nd=1260119657277&rows=10&page=1&sidx=&sord=]
+
+
+Processing ContractsController#index (for 127.0.0.1 at 2009-12-06 12:23:12) [GET]
+  [4;36;1mContract Load (2.5ms)[0m   [0;1mSELECT * FROM "contracts" [0m
+  [4;35;1mContract Load (2.1ms)[0m   [0mSELECT * FROM "contracts" LIMIT 20 OFFSET 0[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSELECT count(*) AS count_all FROM "contracts" [0m
+Rendering template within layouts/application
+Rendering contracts/index
+Completed in 33ms (View: 9, DB: 5) | 200 OK [http://localhost/]
+
+
+Processing ContractsController#index (for 127.0.0.1 at 2009-12-06 12:23:12) [GET]
+  Parameters: {"nd"=>"1260120192791", "sord"=>"", "q"=>"1", "page"=>"1", "_search"=>"false", "rows"=>"10", "sidx"=>""}
+  [4;35;1mContract Load (2.1ms)[0m   [0mSELECT * FROM "contracts" [0m
+  [4;36;1mContract Load (1.5ms)[0m   [0;1mSELECT * FROM "contracts" LIMIT 10 OFFSET 0[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT count(*) AS count_all FROM "contracts" [0m
+Completed in 26ms (View: 1, DB: 4) | 200 OK [http://localhost/contracts?q=1&_search=false&nd=1260120192791&rows=10&page=1&sidx=&sord=]
+
+
+Processing ContractsController#alerts (for 127.0.0.1 at 2009-12-06 12:23:12) [GET]
+  Parameters: {"nd"=>"1260120192932", "sord"=>"", "q"=>"1", "page"=>"1", "_search"=>"false", "rows"=>"10", "sidx"=>""}
+Completed in 6ms (View: 1, DB: 0) | 200 OK [http://localhost/contracts/alerts?q=1&_search=false&nd=1260120192932&rows=10&page=1&sidx=&sord=]
+
+
+Processing ContractsController#index (for 127.0.0.1 at 2009-12-06 12:26:36) [GET]
+  [4;36;1mContract Load (2.1ms)[0m   [0;1mSELECT * FROM "contracts" [0m
+  [4;35;1mContract Load (1.4ms)[0m   [0mSELECT * FROM "contracts" LIMIT 20 OFFSET 0[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "contracts" [0m
+Rendering template within layouts/application
+Rendering contracts/index
+Completed in 29ms (View: 8, DB: 4) | 200 OK [http://localhost/]
+
+
+Processing ContractsController#index (for 127.0.0.1 at 2009-12-06 12:26:36) [GET]
+  Parameters: {"nd"=>"1260120396641", "sord"=>"", "q"=>"1", "page"=>"1", "_search"=>"false", "rows"=>"10", "sidx"=>""}
+  [4;35;1mContract Load (2.3ms)[0m   [0mSELECT * FROM "contracts" [0m
+  [4;36;1mContract Load (1.8ms)[0m   [0;1mSELECT * FROM "contracts" LIMIT 10 OFFSET 0[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT count(*) AS count_all FROM "contracts" [0m
+Completed in 32ms (View: 1, DB: 4) | 200 OK [http://localhost/contracts?q=1&_search=false&nd=1260120396641&rows=10&page=1&sidx=&sord=]
+
+
+Processing ContractsController#alerts (for 127.0.0.1 at 2009-12-06 12:26:36) [GET]
+  Parameters: {"nd"=>"1260120396785", "sord"=>"", "q"=>"1", "page"=>"1", "_search"=>"false", "rows"=>"10", "sidx"=>""}
+Completed in 6ms (View: 1, DB: 0) | 200 OK [http://localhost/contracts/alerts?q=1&_search=false&nd=1260120396785&rows=10&page=1&sidx=&sord=]
+
+
+Processing ContractsController#index (for 127.0.0.1 at 2009-12-06 12:43:23) [GET]
+  [4;36;1mContract Load (1.9ms)[0m   [0;1mSELECT * FROM "contracts" [0m
+  [4;35;1mContract Load (1.7ms)[0m   [0mSELECT * FROM "contracts" LIMIT 20 OFFSET 0[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "contracts" [0m
+Rendering template within layouts/application
+Rendering contracts/index
+Completed in 28ms (View: 9, DB: 4) | 200 OK [http://localhost/]
+
+
+Processing ContractsController#index (for 127.0.0.1 at 2009-12-06 12:43:23) [GET]
+  Parameters: {"nd"=>"1260121403874", "sord"=>"", "q"=>"1", "page"=>"1", "_search"=>"false", "rows"=>"10", "sidx"=>""}
+  [4;35;1mContract Load (2.2ms)[0m   [0mSELECT * FROM "contracts" [0m
+  [4;36;1mContract Load (1.7ms)[0m   [0;1mSELECT * FROM "contracts" LIMIT 10 OFFSET 0[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT count(*) AS count_all FROM "contracts" [0m
+Completed in 32ms (View: 1, DB: 4) | 200 OK [http://localhost/contracts?q=1&_search=false&nd=1260121403874&rows=10&page=1&sidx=&sord=]
+
+
+Processing ContractsController#alerts (for 127.0.0.1 at 2009-12-06 12:43:24) [GET]
+  Parameters: {"nd"=>"1260121404020", "sord"=>"", "q"=>"1", "page"=>"1", "_search"=>"false", "rows"=>"10", "sidx"=>""}
+Completed in 6ms (View: 1, DB: 0) | 200 OK [http://localhost/contracts/alerts?q=1&_search=false&nd=1260121404020&rows=10&page=1&sidx=&sord=]
+
+
+Processing CreditsController#index (for 127.0.0.1 at 2009-12-06 12:43:31) [GET]
+Rendering template within layouts/application
+Rendering credits/show
+Completed in 46ms (View: 42, DB: 0) | 200 OK [http://localhost/credits]
+
+
+Processing CreditsController#index (for 127.0.0.1 at 2009-12-06 12:50:17) [GET]
+Rendering template within layouts/application
+Rendering credits/show
+Completed in 17ms (View: 13, DB: 0) | 200 OK [http://localhost/credits]
+
+
+Processing CreditsController#index (for 127.0.0.1 at 2009-12-06 12:51:22) [GET]
+Rendering template within layouts/application
+Rendering credits/show
+Completed in 19ms (View: 13, DB: 0) | 200 OK [http://localhost/credits]
+
+
+Processing CreditsController#index (for 127.0.0.1 at 2009-12-06 12:51:46) [GET]
+Rendering template within layouts/application
+Rendering credits/show
+Completed in 17ms (View: 13, DB: 0) | 200 OK [http://localhost/credits]
+
+
+Processing CreditsController#index (for 127.0.0.1 at 2009-12-06 12:52:32) [GET]
+Rendering template within layouts/application
+Rendering credits/show
+Completed in 16ms (View: 13, DB: 0) | 200 OK [http://localhost/credits]
+
+
+Processing CreditsController#index (for 127.0.0.1 at 2009-12-06 12:52:52) [GET]
+Rendering template within layouts/application
+Rendering credits/show
+Completed in 77ms (View: 74, DB: 0) | 200 OK [http://localhost/credits]
+
+
+Processing ContractsController#index (for 127.0.0.1 at 2009-12-06 12:53:02) [GET]
+  [4;36;1mContract Load (1.8ms)[0m   [0;1mSELECT * FROM "contracts" [0m
+  [4;35;1mContract Load (1.5ms)[0m   [0mSELECT * FROM "contracts" LIMIT 20 OFFSET 0[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "contracts" [0m
+Rendering template within layouts/application
+Rendering contracts/index
+Completed in 27ms (View: 8, DB: 4) | 200 OK [http://localhost/contracts]
+
+
+Processing ContractsController#index (for 127.0.0.1 at 2009-12-06 12:53:02) [GET]
+  Parameters: {"nd"=>"1260121982915", "sord"=>"", "q"=>"1", "page"=>"1", "_search"=>"false", "rows"=>"10", "sidx"=>""}
+  [4;35;1mContract Load (2.1ms)[0m   [0mSELECT * FROM "contracts" [0m
+  [4;36;1mContract Load (1.7ms)[0m   [0;1mSELECT * FROM "contracts" LIMIT 10 OFFSET 0[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "contracts" [0m
+Completed in 25ms (View: 1, DB: 4) | 200 OK [http://localhost/contracts?q=1&_search=false&nd=1260121982915&rows=10&page=1&sidx=&sord=]
+
+
+Processing ContractsController#alerts (for 127.0.0.1 at 2009-12-06 12:53:03) [GET]
+  Parameters: {"nd"=>"1260121983055", "sord"=>"", "q"=>"1", "page"=>"1", "_search"=>"false", "rows"=>"10", "sidx"=>""}
+Completed in 6ms (View: 1, DB: 0) | 200 OK [http://localhost/contracts/alerts?q=1&_search=false&nd=1260121983055&rows=10&page=1&sidx=&sord=]
+
+
+Processing ContractsController#alerts (for 127.0.0.1 at 2009-12-06 12:56:12) [GET]
+  Parameters: {"nd"=>"1260122172565", "sord"=>"", "id"=>"1", "q"=>"1", "page"=>"1", "_search"=>"false", "rows"=>"10", "sidx"=>""}
+  [4;36;1mContract Load (0.5ms)[0m   [0;1mSELECT * FROM "contracts" WHERE ("contracts"."id" = 1) [0m
+  [4;35;1mAlert Load (0.7ms)[0m   [0mSELECT * FROM "alerts" WHERE ("alerts".contract_id = 1) LIMIT 10 OFFSET 0[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "alerts" WHERE ("alerts".contract_id = 1) [0m
+Completed in 88ms (View: 1, DB: 2) | 200 OK [http://localhost/contracts/alerts?q=1&id=1&_search=false&nd=1260122172565&rows=10&page=1&sidx=&sord=]
+
+
+Processing ContractsController#alerts (for 127.0.0.1 at 2009-12-06 12:56:15) [GET]
+  Parameters: {"nd"=>"1260122175267", "sord"=>"", "id"=>"2", "q"=>"1", "page"=>"1", "_search"=>"false", "rows"=>"10", "sidx"=>""}
+  [4;35;1mContract Load (0.5ms)[0m   [0mSELECT * FROM "contracts" WHERE ("contracts"."id" = 2) [0m
+  [4;36;1mAlert Load (0.3ms)[0m   [0;1mSELECT * FROM "alerts" WHERE ("alerts".contract_id = 2) LIMIT 10 OFFSET 0[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "alerts" WHERE ("alerts".contract_id = 2) [0m
+Completed in 26ms (View: 1, DB: 1) | 200 OK [http://localhost/contracts/alerts?q=1&id=2&_search=false&nd=1260122175267&rows=10&page=1&sidx=&sord=]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2009-12-06 12:56:48) [GET]
+  [4;36;1mUser Load (0.9ms)[0m   [0;1mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".user_id = 1) [0m
+Rendered users/_user_small (13.1ms)
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".user_id = 2) [0m
+Rendered users/_user_small (2.8ms)
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" WHERE ("posts".user_id = 3) [0m
+Rendered users/_user_small (3.1ms)
+Completed in 38ms (View: 26, DB: 2) | 200 OK [http://localhost/users]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-12-06 12:56:49) [GET]
+Rendering template within layouts/application
+Rendering users/new
+Rendered users/_form (5.4ms)
+Completed in 22ms (View: 12, DB: 0) | 200 OK [http://localhost/users/new]
