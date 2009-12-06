@@ -6052,3 +6052,75 @@ Processing ContractsController#index (for 127.0.0.1 at 2009-12-05 19:23:26) [GET
   [4;35;1mContract Load (1.0ms)[0m   [0mSELECT * FROM "contracts" LIMIT 10 OFFSET 0[0m
   [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "contracts" [0m
 Completed in 20ms (View: 1, DB: 3) | 200 OK [http://localhost/contracts?q=1&_search=false&nd=1260059006521&rows=10&page=1&sidx=&sord=]
+  [4;36;1mSQL (1.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateComments (20091203162133)
+Migrating to CreatePosts (20091203162135)
+Migrating to CreateUsers (20091203162136)
+Migrating to CreateCredits (20091204173921)
+Migrating to CreateContracts (20091205220601)
+Migrating to AddDataToContracts (20091206002935)
+  [4;36;1mSQL (0.3ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mContract Create (0.7ms)[0m   [0mINSERT INTO "contracts" ("number", "signature_date", "expiration_date", "created_at", "title", "updated_at", "effective_date") VALUES('A-38274', '11-12-2009', '11-24-2009', '2009-12-06 00:30:26', 'Seabrook Turbine Retrofit', '2009-12-06 00:30:26', '11-10-2009')[0m
+  [4;36;1mContract Create (0.3ms)[0m   [0;1mINSERT INTO "contracts" ("number", "signature_date", "expiration_date", "created_at", "title", "updated_at", "effective_date") VALUES('B-4444', '12-03-2009', '12-24-2010', '2009-12-06 00:30:26', 'Test Contract1', '2009-12-06 00:30:26', '12-04-2009')[0m
+  [4;35;1mContract Create (0.3ms)[0m   [0mINSERT INTO "contracts" ("number", "signature_date", "expiration_date", "created_at", "title", "updated_at", "effective_date") VALUES('C-9494', '12-03-2009', '12-24-2011', '2009-12-06 00:30:26', 'Test Contract2', '2009-12-06 00:30:26', '12-05-2009')[0m
+  [4;36;1mContract Create (0.3ms)[0m   [0;1mINSERT INTO "contracts" ("number", "signature_date", "expiration_date", "created_at", "title", "updated_at", "effective_date") VALUES('D-87321', '11-17-2009', '02-03-2010', '2009-12-06 00:30:26', 'Big Y Junction Project', '2009-12-06 00:30:26', '11-27-2009')[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20091206002935')[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("comments")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mPRAGMA index_list("contracts")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("credits")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("posts")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("users")[0m
+
+
+Processing ContractsController#index (for 127.0.0.1 at 2009-12-05 19:31:01) [GET]
+  [4;36;1mContract Load (2.4ms)[0m   [0;1mSELECT * FROM "contracts" [0m
+  [4;35;1mContract Load (1.9ms)[0m   [0mSELECT * FROM "contracts" LIMIT 20 OFFSET 0[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "contracts" [0m
+Rendering template within layouts/application
+Rendering contracts/index
+Completed in 110ms (View: 92, DB: 5) | 200 OK [http://localhost/]
+
+
+Processing ContractsController#index (for 127.0.0.1 at 2009-12-05 19:31:01) [GET]
+  Parameters: {"nd"=>"1260059461873", "sord"=>"", "q"=>"1", "page"=>"1", "_search"=>"false", "rows"=>"10", "sidx"=>""}
+  [4;35;1mContract Load (1.8ms)[0m   [0mSELECT * FROM "contracts" [0m
+  [4;36;1mContract Load (1.7ms)[0m   [0;1mSELECT * FROM "contracts" LIMIT 10 OFFSET 0[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT count(*) AS count_all FROM "contracts" [0m
+Completed in 27ms (View: 1, DB: 4) | 200 OK [http://localhost/contracts?q=1&_search=false&nd=1260059461873&rows=10&page=1&sidx=&sord=]
+
+
+Processing ContractsController#index (for 127.0.0.1 at 2009-12-05 19:31:14) [GET]
+  Parameters: {"nd"=>"1260059474846", "sord"=>"asc", "q"=>"1", "page"=>"1", "_search"=>"false", "rows"=>"10", "sidx"=>"effective_date"}
+  [4;36;1mContract Load (1.8ms)[0m   [0;1mSELECT * FROM "contracts" [0m
+  [4;35;1mContract Load (1.9ms)[0m   [0mSELECT * FROM "contracts" ORDER BY effective_date asc LIMIT 10 OFFSET 0[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSELECT count(*) AS count_all FROM "contracts" ORDER BY effective_date asc [0m
+Completed in 23ms (View: 1, DB: 4) | 200 OK [http://localhost/contracts?q=1&_search=false&nd=1260059474846&rows=10&page=1&sidx=effective_date&sord=asc]
+
+
+Processing ContractsController#index (for 127.0.0.1 at 2009-12-05 19:31:18) [GET]
+  Parameters: {"nd"=>"1260059478376", "sord"=>"asc", "q"=>"1", "page"=>"1", "_search"=>"false", "rows"=>"10", "sidx"=>"expiration_date"}
+  [4;35;1mContract Load (1.9ms)[0m   [0mSELECT * FROM "contracts" [0m
+  [4;36;1mContract Load (1.8ms)[0m   [0;1mSELECT * FROM "contracts" ORDER BY expiration_date asc LIMIT 10 OFFSET 0[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT count(*) AS count_all FROM "contracts" ORDER BY expiration_date asc [0m
+Completed in 23ms (View: 1, DB: 4) | 200 OK [http://localhost/contracts?q=1&_search=false&nd=1260059478376&rows=10&page=1&sidx=expiration_date&sord=asc]
+
+
+Processing ContractsController#index (for 127.0.0.1 at 2009-12-05 19:31:29) [GET]
+  Parameters: {"nd"=>"1260059489766", "sord"=>"asc", "q"=>"1", "page"=>"1", "_search"=>"false", "rows"=>"10", "sidx"=>"id"}
+  [4;36;1mContract Load (1.9ms)[0m   [0;1mSELECT * FROM "contracts" [0m
+  [4;35;1mContract Load (1.5ms)[0m   [0mSELECT * FROM "contracts" ORDER BY id asc LIMIT 10 OFFSET 0[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "contracts" ORDER BY id asc [0m
+Completed in 24ms (View: 3, DB: 4) | 200 OK [http://localhost/contracts?q=1&_search=false&nd=1260059489766&rows=10&page=1&sidx=id&sord=asc]
