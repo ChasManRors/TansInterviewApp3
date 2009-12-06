@@ -9,7 +9,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091206002935) do
+ActiveRecord::Schema.define(:version => 20091206151958) do
+
+  create_table "alerts", :force => true do |t|
+    t.string   "alert_date"
+    t.string   "title"
+    t.string   "contract_number"
+    t.string   "contract_title"
+    t.integer  "contract_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "comments", :force => true do |t|
     t.text     "body"

@@ -67,7 +67,8 @@ a:hover {
 
 #header {
 	width: 880px;
-	height: 91px;
+	/* height: 91px; */
+	height: 41px;
 	margin: 0 auto;
 }
 

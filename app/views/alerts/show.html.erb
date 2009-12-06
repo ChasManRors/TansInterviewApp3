@@ -1,0 +1,28 @@
+<p>
+  <b>Alert date:</b>
+  <%=h @alert.alert_date %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%=h @alert.title %>
+</p>
+
+<p>
+  <b>Contract number:</b>
+  <%=h @alert.contract_number %>
+</p>
+
+<p>
+  <b>Contract title:</b>
+  <%=h @alert.contract_title %>
+</p>
+
+<p>
+  <b>Contract:</b>
+  <%=h @alert.contract_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_alert_path(@alert) %> |
+<%= link_to 'Back', alerts_path %>

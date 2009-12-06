@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  alert_date: MyString
+  title: MyString
+  contract_number: MyString
+  contract_title: MyString
+  contract_id: 1
+
+two:
+  alert_date: MyString
+  title: MyString
+  contract_number: MyString
+  contract_title: MyString
+  contract_id: 1

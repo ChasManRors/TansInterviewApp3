@@ -105,4 +105,24 @@ class ContractsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+def alerts
+  if params[:id].present?
+    alerts = Contract.find(params[:id]).alerts.find(:all) do
+      paginate :page => params[:page], :per_page => params[:rows]      
+      order_by "#{params[:sidx]} #{params[:sord]}"        
+    end
+    total_entries = alerts.total_entries
+  else
+    alerts = []
+    total_entries = 0
+  end
+  respond_to do |format|
+    format.json { render :json => alerts.to_jqgrid_json([:id, :alert_date, :title, :contract_number, :contract_title], params[:page], params[:rows], total_entries) }
+  end
+end
+
+
+
+
 end

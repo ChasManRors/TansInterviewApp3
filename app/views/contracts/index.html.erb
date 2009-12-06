@@ -1,48 +1,61 @@
-<h1>Listing contracts</h1>
+<h1>Contract Intelligence (pseudo)</h1>
 
 
+<!-- <table> -->
+<!--   <tr> -->
+<!--     <th>Number</th> -->
+<!--     <th>Title</th> -->
+<!--     <th>Signature date</th> -->
+<!--     <th>Effective date</th> -->
+<!--     <th>Expiration date</th> -->
+<!--   </tr> -->
 
-
-
-
-<table>
-  <tr>
-    <th>Number</th>
-    <th>Title</th>
-    <th>Signature date</th>
-    <th>Effective date</th>
-    <th>Expiration date</th>
-  </tr>
-
-<% @contracts.each do |contract| %>
-  <tr>
-    <td><%=h contract.number %></td>
-    <td><%=h contract.title %></td>
-    <td><%=h contract.signature_date %></td>
-    <td><%=h contract.effective_date %></td>
-    <td><%=h contract.expiration_date %></td>
-    <td><%= link_to 'Show', contract %></td>
-    <td><%= link_to 'Edit', edit_contract_path(contract) %></td>
-    <td><%= link_to 'Destroy', contract, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
+<!-- <% @contracts.each do |contract| %> -->
+<!--   <tr> -->
+<!--     <td><#%=h contract.number %></td> -->
+<!--     <td><#%=h contract.title %></td> -->
+<!--     <td><#%=h contract.signature_date %></td> -->
+<!--     <td><#%=h contract.effective_date %></td> -->
+<!--     <td><#%=h contract.expiration_date %></td> -->
+<!--     <td><#%= link_to 'Show', contract %></td> -->
+<!--     <td><#%= link_to 'Edit', edit_contract_path(contract) %></td> -->
+<!--     <td><#%= link_to 'Destroy', contract, :confirm => 'Are you sure?', :method => :delete %></td> -->
+<!--   </tr> -->
+<!-- <% end %> -->
+<!-- </table> -->
 
 <br />
 
 <%= link_to 'New contract', new_contract_path %>
 <br />
 <br />
+
+
+Click on a Contract Row to see the alerts associated with that contract.
+
+<br />
 <br />
 
 <%= jqgrid("Contracts", "players", "/contracts",
 	[
-		{ :field => "id", :label => "ID", :width => 35, :resizable => false },
-		{ :field => "number", :label => "Contract #" },
-		{ :field => "title", :label => "Title" }, 
-		{ :field => "signature_date", :label => "Signature Date" },
-		{ :field => "effective_date", :label => "Effective Date" },
-		{ :field => "expiration_date", :label => "Expiration Date" },
-	]
+	   { :field => "id", 			:label => "ID", 		:width => 30, :resizable => true },
+	    { :field => "number", 		:label => "Contract Number", 	:width => 75, :resizable => true },
+	    { :field => "title", 		:label => "Title", 		:width => 190, :resizable => true }, 
+	    { :field => "signature_date", 	:label => "Signature Date", 	:width => 100, :resizable => true },
+	    { :field => "effective_date", 	:label => "Effective Date", 	:width => 100, :resizable => true },
+	    { :field => "expiration_date", 	:label => "Expiration Date", 	:width => 100, :resizable => true }
+	],
+	    { :master_details => true, :details_url => "/contracts/alerts", :details_caption => "Alerts" }
 ) %>
+<br />
+
+<%=jqgrid("Alerts", "players_details", "/contracts/alerts",
+	[
+	  { :field => "id", :label => "ID", :width => 30, :resizable => false },
+	   { :field => "alert_date", :label => "Date", :width => 100, :align => 'center' },
+	   { :field => "title", :label => "Title", :width => 190, :align => 'center' },
+	   { :field => "contract_number", :label => "Contract Number", :width => 75, :align => 'center' },
+	   { :field => "contract_title ", :label => "Contract Title", :width => 200, :align => 'center' }
+	]
+)%>
 
