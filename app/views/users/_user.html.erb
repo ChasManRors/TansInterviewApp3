@@ -14,17 +14,9 @@
 
           </div>
           <div class="meta">
-            <p class="links"><a href="#" class="comments">Comments (32)</a></p>
+            <p class="links"><a href="#" class="comments">Comments (<%= user.posts.map{|p| p.comments.count}.sum %>)</a></p>
           </div>
         </div>
-
-
-
-
-
-
-
-
 
   
   <!-- <div> -->

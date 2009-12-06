@@ -10,6 +10,14 @@
   </div>
 
    <!-- <# %= link_to 'Destroy', post_comment_path(@post,comment), :confirm => 'Are you sure?', :method => :delete %> -->
+
     <%= link_to 'Destroy', user_post_path(post_small.user,post_small), :confirm => 'Are you sure?', :method => :delete %>
+
+    <%= link_to 'Update', edit_user_post_path(post_small.user,post_small) %>
+
+    <%= link_to 'Add Comment', new_user_post_comment_path(post_small.user,post_small,@comment) %>
+
+
+
 
 <% end %>

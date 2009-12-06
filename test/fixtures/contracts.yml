@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  number: MyString
+  title: MyString
+  signature_date: MyString
+  effective_date: MyString
+  expiration_date: MyString
+
+two:
+  number: MyString
+  title: MyString
+  signature_date: MyString
+  effective_date: MyString
+  expiration_date: MyString

@@ -1,0 +1,28 @@
+<p>
+  <b>Number:</b>
+  <%=h @contract.number %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%=h @contract.title %>
+</p>
+
+<p>
+  <b>Signature date:</b>
+  <%=h @contract.signature_date %>
+</p>
+
+<p>
+  <b>Effective date:</b>
+  <%=h @contract.effective_date %>
+</p>
+
+<p>
+  <b>Expiration date:</b>
+  <%=h @contract.expiration_date %>
+</p>
+
+
+<%= link_to 'Edit', edit_contract_path(@contract) %> |
+<%= link_to 'Back', contracts_path %>

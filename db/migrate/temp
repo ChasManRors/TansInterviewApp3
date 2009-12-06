@@ -1,0 +1,3 @@
+Contract.create :number => "C-38274", :title => "Seabrook Turbine Retrofit", :signature_date => "11-12-2009", :effective_date => "11-10-2009", :expiration_date => "11-24-2009"
+Contract.create :number => "C-4444",  :title => "Test Contract1",            :signature_date => "12-03-2009", :effective_date => "12-04-2009", :expiration_date => "12-24-2010"
+Contract.create :number => "C-87321",  :title => "Big Y Junction Project",   :signature_date => "11-17-2009", :effective_date => "11-27-2009", :expiration_date => "02-03-2010"

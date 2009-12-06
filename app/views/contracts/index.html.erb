@@ -1,0 +1,48 @@
+<h1>Listing contracts</h1>
+
+
+
+
+
+
+<table>
+  <tr>
+    <th>Number</th>
+    <th>Title</th>
+    <th>Signature date</th>
+    <th>Effective date</th>
+    <th>Expiration date</th>
+  </tr>
+
+<% @contracts.each do |contract| %>
+  <tr>
+    <td><%=h contract.number %></td>
+    <td><%=h contract.title %></td>
+    <td><%=h contract.signature_date %></td>
+    <td><%=h contract.effective_date %></td>
+    <td><%=h contract.expiration_date %></td>
+    <td><%= link_to 'Show', contract %></td>
+    <td><%= link_to 'Edit', edit_contract_path(contract) %></td>
+    <td><%= link_to 'Destroy', contract, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New contract', new_contract_path %>
+<br />
+<br />
+<br />
+
+<%= jqgrid("Contracts", "players", "/contracts",
+	[
+		{ :field => "id", :label => "ID", :width => 35, :resizable => false },
+		{ :field => "number", :label => "Contract #" },
+		{ :field => "title", :label => "Title" }, 
+		{ :field => "signature_date", :label => "Signature Date" },
+		{ :field => "effective_date", :label => "Effective Date" },
+		{ :field => "expiration_date", :label => "Expiration Date" },
+	]
+) %>
+

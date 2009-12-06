@@ -9,11 +9,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091204173921) do
+ActiveRecord::Schema.define(:version => 20091205220601) do
 
   create_table "comments", :force => true do |t|
     t.text     "body"
     t.integer  "post_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "contracts", :force => true do |t|
+    t.string   "number"
+    t.string   "title"
+    t.string   "signature_date"
+    t.string   "effective_date"
+    t.string   "expiration_date"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
