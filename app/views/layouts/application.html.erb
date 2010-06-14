@@ -20,12 +20,50 @@
     <%= jqgrid_stylesheets %>
     <%= jqgrid_javascripts %> 
 
+
+
+<script type="text/javascript">
+$(function()
+{
+$("#trigger").click(function(event) {
+event.preventDefault();
+$("#box").slideToggle();
+});
+
+$("#box a").click(function(event) {
+event.preventDefault();
+$("#box").slideUp();
+});
+});
+</script>
+
+
+<script type="text/javascript">
+  $(function(){
+  $('div.hideonstartup').hide;
+  });
+</script>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+                                           // var $commentBody = $('p:eq(1)');
+  var $commentBody = $("p.comment-body");
+  $commentBody.hide();
+  $('a.more').click(function() {
+    $commentBody.slideToggle('slow');
+    var $link = $(this);
+    if ( $link.text() == "read more" ) {
+      $link.text("read less");      
+    } else {
+      $link.text("read more");
+    }
+    return false;
+  });
+});
+</script>
+
   </head>
-
     <!-- <div class="container"> -->
-
-
-
 
 <body>
 <div id="wrapper">
@@ -165,6 +203,31 @@
   <!-- end div#footer -->
 </div>
 <!-- end div#wrapper -->
+
+
+
+
+<a href="#" id="trigger">TRIGGER</a>
+
+<div class="hideonstartup">
+  <div id="box">
+    <a href="#" class="close">[x]</a>
+    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren</p>
+  </div>
+</div>
+
+<br />
+<br />
+This is other <br />
+stuff <br />
+
+<br /><br />
+
+  <p class='comment-body'>(This is what appears and dissappears)Now we are engaged in a great civil war, testing whether that nation, or any nation so conceived and so dedicated, can long endure. We are met on a great battlefield of that war. We have come to dedicate a portion of that field as a final resting-place for those who here gave their lives that the nation might live. It is altogether fitting and proper that we should do this. But, in a larger sense, we cannot dedicate, we cannot consecrate, we cannot hallow, this ground. </p>
+  <a href="#" class="more">read more</a>
+
+<br /><br /><br />
+
 </body>
 
 </html>
